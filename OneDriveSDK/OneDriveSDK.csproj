@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7CFA73EF-485B-44C1-BE7E-18391750C725}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OneDrive</RootNamespace>
+    <AssemblyName>OneDriveSDK</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ApiConstants.cs" />
+    <Compile Include="CommandOptions\ChildrenRetrievalOptions.cs" />
+    <Compile Include="CommandOptions\RequestOptions.cs" />
+    <Compile Include="CommandOptions\ODataQueryStringParameters.cs" />
+    <Compile Include="CommandOptions\RetrievalOptions.cs" />
+    <Compile Include="CommandOptions\StreamDownloadOptions.cs" />
+    <Compile Include="CommandOptions\ThumbnailRetrievalOptions.cs" />
+    <Compile Include="CommandOptions\ViewChangesOptions.cs" />
+    <Compile Include="DataType\ODAsyncTaskStatus.cs" />
+    <Compile Include="DataType\ODDataModel.cs" />
+    <Compile Include="DataType\ODError.cs" />
+    <Compile Include="DataType\ODItemCollection.cs" />
+    <Compile Include="DataType\ODCollectionResponse.cs" />
+    <Compile Include="DataType\ODPermission.cs" />
+    <Compile Include="DataType\ODUploadSession.cs" />
+    <Compile Include="DataType\ODUploadSessionDescriptor.cs" />
+    <Compile Include="DataType\ODUserProfile.cs" />
+    <Compile Include="Exceptions\ExceptionExtensions.cs" />
+    <Compile Include="Exceptions\ODAuthenticationException.cs" />
+    <Compile Include="Exceptions\ODSerializationException.cs" />
+    <Compile Include="Exceptions\ODServerException.cs" />
+    <Compile Include="Extensions\AsyncJobsExtensionMethods.cs" />
+    <Compile Include="Extensions\GenericExtensionMethods.cs" />
+    <Compile Include="Extensions\ItemCollectionExtensionMethods.cs" />
+    <Compile Include="Extensions\ItemExtensionMethods.cs" />
+    <Compile Include="Extensions\ItemReferenceExtensionMethods.cs" />
+    <Compile Include="Extensions\ThumbnailExtensionMethods.cs" />
+    <Compile Include="Extensions\UploadExtensionMethods.cs" />
+    <Compile Include="Facets\SharingLinkFacet.cs" />
+    <Compile Include="Http\HttpFactoryDefault.cs" />
+    <Compile Include="Http\WrappedHttpClient.cs" />
+    <Compile Include="Http\IHttpRequest.cs" />
+    <Compile Include="Http\WrappedHttpWebRequest.cs" />
+    <Compile Include="IAuthenticationInfo.cs" />
+    <Compile Include="DataType\ODIdentity.cs" />
+    <Compile Include="DataType\ODItem.cs" />
+    <Compile Include="DataType\ODThumbnail.cs" />
+    <Compile Include="DataType\ODThumbnailSet.cs" />
+    <Compile Include="DataType\ODViewChangesResult.cs" />
+    <Compile Include="Facets\HashesFacet.cs" />
+    <Compile Include="Facets\LocationFacet.cs" />
+    <Compile Include="Facets\PhotoFacet.cs" />
+    <Compile Include="Facets\QuotaFacet.cs" />
+    <Compile Include="Facets\SpecialFolderFacet.cs" />
+    <Compile Include="Facets\VideoFacet.cs" />
+    <Compile Include="CommandOptions\ItemDeleteOptions.cs" />
+    <Compile Include="CommandOptions\ItemRetrievalOptions.cs" />
+    <Compile Include="CommandOptions\ItemUploadOptions.cs" />
+    <Compile Include="DataType\ODDrive.cs" />
+    <Compile Include="Facets\AudioFacet.cs" />
+    <Compile Include="Facets\FileFacet.cs" />
+    <Compile Include="Facets\FolderFacet.cs" />
+    <Compile Include="Facets\ImageFacet.cs" />
+    <Compile Include="Facets\TombstoneFacet.cs" />
+    <Compile Include="LargeFileUploader.cs" />
+    <Compile Include="ODConnection.cs" />
+    <Compile Include="Exceptions\ODException.cs" />
+    <Compile Include="DataType\ODIdentitySet.cs" />
+    <Compile Include="DataType\ODItemReference.cs" />
+    <Compile Include="ODConnection.public.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ContentRange.cs" />
+    <Compile Include="Utility\EnumExtensionMethods.cs" />
+    <Compile Include="Utility\HttpExtensionMethods.cs" />
+    <Compile Include="Utility\QueryStringBuilder.cs" />
+    <Compile Include="Utility\StreamExtensionMethods.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\portable-net45+win8+wp8+wpa81\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\portable-net45+win8+wp8+wpa81\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\portable-net45+wp80+win8+wpa81+aspnetcore50\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

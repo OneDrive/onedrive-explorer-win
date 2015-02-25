@@ -93,10 +93,16 @@ namespace OneDrive
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        public static string Path(this ODItem item)
+        public static string Path(this ODItem item, bool includeApiRoot = false)
         {
             if (null != item.ParentReference)
             {
+                if (!includeApiRoot)
+                {
+                    string userPath = item.ParentReference.Path.Split(new char[] { ':' })[1];
+                    return "/" + userPath + item.Name;
+                }
+
                 return item.ParentReference.Path + item.Name;
             }
 

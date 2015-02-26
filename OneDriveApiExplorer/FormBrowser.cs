@@ -640,6 +640,29 @@ namespace NewApiBrowser
                 PresentOneDriveException(exception);
             }
         }
+
+        private async void renameSelectedItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var itemToRename = this.SelectedItem;
+
+            FormInputDialog dialog = new FormInputDialog("Rename selected item", "New item name");
+            dialog.InputText = itemToRename.Name;
+
+            var result = dialog.ShowDialog();
+            if (result != System.Windows.Forms.DialogResult.OK)
+                return;
+
+            ODItem changes = new ODItem { Name = dialog.InputText };
+            try
+            {
+                var renamedItem = await Connection.PatchItemAsync(itemToRename.ItemReference(), changes);
+                UpdateItemInFolderContents(itemToRename, renamedItem);
+            }
+            catch (ODException ex)
+            {
+                PresentOneDriveException(ex);
+            }
+        }
     }
 
 }

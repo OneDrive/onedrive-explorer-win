@@ -296,13 +296,31 @@ namespace OneDrive
         }
 
         /// <summary>
-        /// Updates the properties on an item that have been changed since it was retrieved.
+        /// Update an item referenced by itemReference with the changes in the changes parameter.
+        /// All fields that are not changed in an Item should be set to null before passing the item
+        /// into this call.
         /// </summary>
-        /// <param name="item"></param>
+        /// <param name="itemReference"></param>
+        /// <param name="changes"></param>
         /// <returns></returns>
-        public async Task<ODItem> PatchItemAsync(ODItem item)
+        public async Task<ODItem> PatchItemAsync(ODItemReference itemReference, ODItem changes)
         {
-            throw new NotImplementedException();
+            if (!itemReference.IsValid()) throw new ArgumentException("itemReference is not a valid reference.");
+            if (null == changes) throw new ArgumentNullException("changes");
+
+            Uri serviceUri = UriForItemReference(itemReference);
+            var request = await CreateHttpRequestAsync(serviceUri, ApiConstants.HttpPatch);
+            await SerializeObjectToRequestBody(changes, request);
+
+            var response = await GetHttpResponseAsync(request);
+            if (response.StatusCode.IsSuccess())
+            {
+                return await response.ConvertToDataModel<ODItem>();
+            }
+            else
+            {
+                throw await response.ToException();
+            }
         }
 
         /// <summary>

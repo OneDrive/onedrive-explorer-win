@@ -1,4 +1,6 @@
 ﻿using System;
+using Newtonsoft.Json;
+using System.Net;
 
 namespace OneDrive
 {
@@ -22,6 +24,21 @@ namespace OneDrive
             }
 
             return true;
+        }
+
+        public static T Copy<T>(this T sourceItem) where T : ODDataModel
+        {
+            string serialized = JsonConvert.SerializeObject(sourceItem);
+            return JsonConvert.DeserializeObject<T>(serialized);
+        }
+
+        public static bool IsSuccess(this HttpStatusCode code)
+        {
+            int statusCode = (int)code;
+            if (statusCode >= 200 && statusCode < 300)
+                return true;
+            else
+                return false;
         }
     }
 }

@@ -24,12 +24,12 @@ namespace NewApiBrowser
                 appToken = await MicrosoftAccountOAuth.LoginAuthorizationCodeFlowAsync(msa_client_id,
                     msa_client_secret,
                     new[] { "wl.offline_access", "wl.basic", "wl.signin", "onedrive.readwrite" });
-            }
-            
-            SaveRefreshToken(appToken.RefreshToken);
+            }                       
 
             if (null != appToken)
             {
+                SaveRefreshToken(appToken.RefreshToken);
+
                 return new ODConnection("https://api.onedrive.com/v1.0", new OAuthTicket(appToken));
             }
 

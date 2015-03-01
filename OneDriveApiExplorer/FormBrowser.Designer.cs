@@ -43,6 +43,7 @@
             this.createFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveSelectedFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.renameSelectedItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteSelectedItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +60,7 @@
             this.advancedScenariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getChangesHereToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.renameSelectedItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.getDriveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -226,6 +227,13 @@
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Size = new System.Drawing.Size(211, 6);
             // 
+            // renameSelectedItemToolStripMenuItem
+            // 
+            this.renameSelectedItemToolStripMenuItem.Name = "renameSelectedItemToolStripMenuItem";
+            this.renameSelectedItemToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.renameSelectedItemToolStripMenuItem.Text = "Rename Selected Item...";
+            this.renameSelectedItemToolStripMenuItem.Click += new System.EventHandler(this.renameSelectedItemToolStripMenuItem_Click);
+            // 
             // deleteSelectedItemToolStripMenuItem
             // 
             this.deleteSelectedItemToolStripMenuItem.Name = "deleteSelectedItemToolStripMenuItem";
@@ -325,7 +333,8 @@
             // 
             this.advancedScenariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.getChangesHereToolStripMenuItem,
-            this.searchToolStripMenuItem});
+            this.searchToolStripMenuItem,
+            this.getDriveToolStripMenuItem});
             this.advancedScenariosToolStripMenuItem.Name = "advancedScenariosToolStripMenuItem";
             this.advancedScenariosToolStripMenuItem.Size = new System.Drawing.Size(125, 19);
             this.advancedScenariosToolStripMenuItem.Text = "Advanced Scenarios";
@@ -333,23 +342,23 @@
             // getChangesHereToolStripMenuItem
             // 
             this.getChangesHereToolStripMenuItem.Name = "getChangesHereToolStripMenuItem";
-            this.getChangesHereToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.getChangesHereToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.getChangesHereToolStripMenuItem.Text = "Get Changes...";
             this.getChangesHereToolStripMenuItem.Click += new System.EventHandler(this.getChangesHereToolStripMenuItem_Click);
             // 
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.searchToolStripMenuItem.Text = "Search...";
             this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
-            // renameSelectedItemToolStripMenuItem
+            // getDriveToolStripMenuItem
             // 
-            this.renameSelectedItemToolStripMenuItem.Name = "renameSelectedItemToolStripMenuItem";
-            this.renameSelectedItemToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            this.renameSelectedItemToolStripMenuItem.Text = "Rename Selected Item...";
-            this.renameSelectedItemToolStripMenuItem.Click += new System.EventHandler(this.renameSelectedItemToolStripMenuItem_Click);
+            this.getDriveToolStripMenuItem.Name = "getDriveToolStripMenuItem";
+            this.getDriveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.getDriveToolStripMenuItem.Text = "Get Drive...";
+            this.getDriveToolStripMenuItem.Click += new System.EventHandler(this.getDriveToolStripMenuItem_Click);
             // 
             // FormBrowser
             // 
@@ -410,6 +419,7 @@
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem largeFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem renameSelectedItemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem getDriveToolStripMenuItem;
     }
 }
 

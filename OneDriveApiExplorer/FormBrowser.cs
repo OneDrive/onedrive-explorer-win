@@ -663,6 +663,15 @@ namespace NewApiBrowser
                 PresentOneDriveException(ex);
             }
         }
+
+        private async void getDriveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var defaultDrive = await Connection.GetDrive();
+
+            FormSyncResults display = new FormSyncResults(Connection, defaultDrive);
+            display.Show();
+
+        }
     }
 
 }

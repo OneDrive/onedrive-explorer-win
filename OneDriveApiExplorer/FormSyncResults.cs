@@ -7,9 +7,9 @@ namespace NewApiBrowser
     public partial class FormSyncResults : Form
     {
         public ODConnection Connection { get; set; }
-        public ODItemCollection Results { get; set; }
+        public ODDataModel Results { get; set; }
 
-        public FormSyncResults(ODConnection connection, ODItemCollection result)
+        public FormSyncResults(ODConnection connection, ODDataModel result)
         {
             InitializeComponent();
 
@@ -23,20 +23,29 @@ namespace NewApiBrowser
             labelRefreshing.Visible = false;
         }
 
-        private void LoadResults(ODItemCollection results)
+        private void LoadResults(ODDataModel results)
         {
             Results = results;
             oneDriveObjectBrowser1.SelectedItem = results;
 
-            buttonGetNext.Enabled = results.MoreItemsAvailable();
+            var resultCollection = results as ODItemCollection;
+            if (null != resultCollection)
+            {
+                buttonGetNext.Enabled = resultCollection.MoreItemsAvailable();
+            }
+            else
+            {
+                buttonGetNext.Visible = false;
+            }
         }
 
         private async void buttonGetNext_Click(object sender, EventArgs e)
         {
-            if (null != Results)
+            var resultCollection = Results as ODItemCollection;
+            if (null != resultCollection)
             {
                 labelRefreshing.Visible = true;
-                var response = await Results.GetNextPage(Connection);
+                var response = await resultCollection.GetNextPage(Connection);
                 LoadResults(response);
                 labelRefreshing.Visible = false;
             }

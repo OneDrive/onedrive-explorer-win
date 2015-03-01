@@ -9,7 +9,7 @@ namespace OneDrive
         internal ODSerializationException(string message, string jsonData, Exception innerException = null)
             : base(message, innerException)
         {
-            JsonData = JsonData;
+            JsonData = jsonData;
         }
     }
 }

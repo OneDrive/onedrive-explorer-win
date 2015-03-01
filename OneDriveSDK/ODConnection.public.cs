@@ -414,5 +414,18 @@ namespace OneDrive
             return await DataModelForRequest<ODItemCollection>(request);
         }
 
+
+        public async Task<ODDrive> GetDrive(ODItemReference driveReference = null)
+        {
+            if (null == driveReference)
+                driveReference = new ODItemReference { DriveId = "me" };
+            if (string.IsNullOrEmpty(driveReference.DriveId))
+                throw new ArgumentException("driveReference must include a DriveId");
+            if (!string.IsNullOrEmpty(driveReference.Id) || !string.IsNullOrEmpty(driveReference.Path))
+                throw new ArgumentException("driveReference must only contain a value for DriveId");
+
+            var serviceUri = UriForItemReference(driveReference);
+            return await DataModelForRequest<ODDrive>(serviceUri, ApiConstants.HttpGet);
+        }
     }
 }

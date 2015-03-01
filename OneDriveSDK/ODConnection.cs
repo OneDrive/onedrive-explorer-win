@@ -262,6 +262,18 @@ namespace OneDrive
                     url.Append(":");
                 }
             }
+            else
+            {
+                // Just address the drive if both path & id are null.
+                if (!string.IsNullOrEmpty(itemReference.DriveId))
+                {
+                    url.AppendFormat("/drives/{0}", itemReference.DriveId);
+                }
+                else
+                {
+                    url.AppendFormat("/drive");
+                }
+            }
 
             if (!string.IsNullOrEmpty(navigationPath))
             {

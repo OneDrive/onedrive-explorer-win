@@ -22,8 +22,8 @@ namespace OneDrive
 
     public enum DriveType
     {
-        [EnumMember(Value = "consumer")]
-        Consumer,
+        [EnumMember(Value = "personal")]
+        Personal,
 
         [EnumMember(Value = "business")]
         Business

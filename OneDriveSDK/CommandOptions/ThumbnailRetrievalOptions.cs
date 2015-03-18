@@ -5,6 +5,7 @@ namespace OneDrive
 {
     public class ThumbnailRetrievalOptions : RetrievalOptions
     {
+
         /// <summary>
         /// List of thumbnail size names to return
         /// </summary>
@@ -25,15 +26,28 @@ namespace OneDrive
 
             SelectOData thumbnailSelect = null;
             if (SelectThumbnailNames != null && SelectThumbnailNames.Length > 0)
-                thumbnailSelect = new SelectOData { FieldNames = SelectThumbnailNames };
-
-            options.Add(new ExpandOData
             {
-                PropertyToExpand = ApiConstants.ThumbnailsRelationshipName,
-                Select = thumbnailSelect
-            });
-
-            return EmptyCollection;
+                thumbnailSelect = new SelectOData { FieldNames = SelectThumbnailNames };
+                options.Add(thumbnailSelect);
+            }
+            
+            return options;
         }
+    }
+
+    public static class ThumbnailSize
+    {
+        public const string Small = "small";
+        public const string Medium = "medium";
+        public const string Large = "large";
+        public const string SmallSquare = "smallSquare";
+        public const string MediumSquare = "mediumSquare";
+        public const string LargeSquare = "largeSquare";
+
+        public static string CustomSize(int width, int height, bool cropped)
+        {
+            return string.Format("c{0}x{1}{2}", width, height, cropped ? "_Crop" : "");
+        }
+
     }
 }

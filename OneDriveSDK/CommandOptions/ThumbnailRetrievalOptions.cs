@@ -33,7 +33,7 @@ namespace OneDrive
                 Select = thumbnailSelect
             });
 
-            return EmptyCollection;
+            return options;
         }
     }
 }

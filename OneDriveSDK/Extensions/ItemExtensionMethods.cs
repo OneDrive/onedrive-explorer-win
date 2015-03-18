@@ -100,10 +100,18 @@ namespace OneDrive
                 if (!includeApiRoot)
                 {
                     string userPath = item.ParentReference.Path.Split(new char[] { ':' })[1];
+                    if (null != userPath && !userPath.EndsWith("/"))
+                        userPath = string.Concat(userPath, "/");
                     return "/" + userPath + item.Name;
                 }
 
-                return item.ParentReference.Path + item.Name;
+                var parentPath = item.ParentReference.Path;
+                if (null != parentPath && !parentPath.EndsWith("/"))
+                {
+                    parentPath = string.Concat(parentPath, "/");
+                }
+
+                return parentPath + item.Name;
             }
 
             return null;

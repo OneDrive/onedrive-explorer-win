@@ -96,6 +96,7 @@
     <Compile Include="ODConnection.public.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ContentRange.cs" />
+    <Compile Include="SpecialFolder.cs" />
     <Compile Include="Utility\EnumExtensionMethods.cs" />
     <Compile Include="Utility\HttpExtensionMethods.cs" />
     <Compile Include="Utility\QueryStringBuilder.cs" />

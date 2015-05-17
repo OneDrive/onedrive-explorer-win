@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Microsoft.OneDrive.SampleCodeSDK</id>
+    <version>$version$</version>
+    <title>Sample SDK for OneDrive</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Example SDK for OneDrive API</description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+  </metadata>
+</package>

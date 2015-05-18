@@ -70,7 +70,7 @@ namespace OneDriveSamples.Picker
         private void CloseWindow()
         {
             const int interval = 100;
-            var t = new System.Threading.Timer(new System.Threading.TimerCallback((state) => 
+            new System.Threading.Timer(new System.Threading.TimerCallback((state) => 
             {
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 this.BeginInvoke(new MethodInvoker(() => this.Close()));

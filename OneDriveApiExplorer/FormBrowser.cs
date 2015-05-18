@@ -195,7 +195,7 @@ namespace NewApiBrowser
             }
         }
 
-        private void linkLabelBreadcrumb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private async void linkLabelBreadcrumb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             LinkLabel link = (LinkLabel)sender;
 
@@ -205,11 +205,11 @@ namespace NewApiBrowser
             if (null == item)
             {
 
-                Task t = LoadFolderFromId("root");
+                await LoadFolderFromId("root");
             }
             else
             {
-                Task t = LoadFolderFromId(item.Id);
+                await LoadFolderFromId(item.Id);
             }
         }
 

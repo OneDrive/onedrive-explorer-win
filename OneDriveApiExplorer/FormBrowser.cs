@@ -35,13 +35,19 @@ namespace NewApiBrowser
         {
             if (null == Connection) return;
 
+            ODItemReference item = new ODItemReference { Id = id };
+            await LoadFolderFromReference(item);
+        }
+
+        private async Task LoadFolderFromReference(ODItemReference item)
+        {
             // Update the UI for loading something new
             ShowWork(true);
             LoadChildren(null);  // Clear the current folder view
 
             try
             {
-                ODItemReference item = new ODItemReference { Id = id };
+
                 var selectedItem = await Connection.GetItemAsync(item, ItemRetrievalOptions.DefaultWithChildrenThumbnails);
                 ProcessFolder(selectedItem);
             }
@@ -676,6 +682,25 @@ namespace NewApiBrowser
             FormSyncResults display = new FormSyncResults(Connection, defaultDrive);
             display.Show();
 
+        }
+
+        private async void openItemByPathToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (null == Connection) return;
+
+            var currentFolder = this.CurrentFolder;
+            var selectedItem = this.SelectedItem;
+            if (null == selectedItem || null == currentFolder) return;
+
+            string pathToItem = selectedItem.Path(false);
+            if (null == pathToItem)
+            {
+                pathToItem = currentFolder.Path(false) + "/" + selectedItem.Name;
+            }
+
+            var itemRef = ODConnection.ItemReferenceForDrivePath(pathToItem);
+
+            await LoadFolderFromReference(itemRef);
         }
     }
 

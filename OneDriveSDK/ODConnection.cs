@@ -262,7 +262,7 @@ namespace OneDrive
                 if (!itemReference.Path.StartsWith("/drive", StringComparison.Ordinal))
                     throw new ArgumentException("Invalid ODItemReference: Path doesn't start with \"/drive\" or \"/drives\".");
 
-                url.Append(itemReference.Path);
+                url.Append(Uri.EscapeUriString(itemReference.Path));
                 if (itemReference.Path.OccurrencesOfCharacter(':') == 1)
                 {
                     // Make sure we terminate the path escape so we can add a navigation property if necessary

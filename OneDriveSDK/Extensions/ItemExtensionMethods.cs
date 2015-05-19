@@ -107,7 +107,8 @@ namespace OneDrive
                     {
                         userPath = string.Concat(userPath, "/");
                     }
-                    return "/" + userPath + item.Name;
+                    
+                    return (!userPath.StartsWith("/") ? "/" : "") + userPath + item.Name;
                 }
                 else
                 {

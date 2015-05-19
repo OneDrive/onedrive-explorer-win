@@ -89,34 +89,33 @@ namespace OneDrive
         }
 
         /// <summary>
-        /// Returns the Path for an item.
+        /// Returns the Path for an item. Returns null if a path is not available for the item.
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
         public static string Path(this ODItem item, bool includeApiRoot = false)
         {
-            if (null != item.ParentReference)
+            
+            if (null != item.ParentReference && null != item.ParentReference.Path)
             {
+                var decodedPath = Uri.UnescapeDataString(item.ParentReference.Path);
+
                 if (!includeApiRoot)
                 {
-                    if (!string.IsNullOrEmpty(item.ParentReference.Path))
+                    string userPath = decodedPath.Split(new char[] { ':' })[1];
+                    if (null != userPath && userPath.Length > 0 && !userPath.EndsWith("/"))
                     {
-                        string userPath = item.ParentReference.Path.Split(new char[] { ':' })[1];
-                        if (null != userPath && !userPath.EndsWith("/"))
-                            userPath = string.Concat(userPath, "/");
-                        return "/" + userPath + item.Name;
+                        userPath = string.Concat(userPath, "/");
                     }
+                    return "/" + userPath + item.Name;
                 }
-
-                var parentPath = item.ParentReference.Path;
-                if (!string.IsNullOrEmpty(parentPath))
+                else
                 {
-                    if (null != parentPath && !parentPath.EndsWith("/"))
+                    if (!decodedPath.EndsWith("/"))
                     {
-                        parentPath = string.Concat(parentPath, "/");
+                        decodedPath = string.Concat(decodedPath, "/");
                     }
-
-                    return parentPath + item.Name;
+                    return decodedPath + item.Name;
                 }
             }
 

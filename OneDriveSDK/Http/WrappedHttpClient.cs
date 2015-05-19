@@ -35,6 +35,7 @@ namespace OneDrive
         public string Accept { get; set; }
         public Dictionary<string, string> Headers {get; private set;}
         private MemoryStream RequestBodyStream {get;set;}
+        private int RetryCount { get; set; }
 
         public async Task<Stream> GetRequestStreamAsync()
         {
@@ -45,11 +46,19 @@ namespace OneDrive
         public async Task<Http.IHttpResponse> GetResponseAsync()
         {
             // Build the StreamContent if necessary
-            
-            var client = new HttpClient(Handler);
-            var message = BuildMessage();
+            HttpClient client = new HttpClient(Handler);
+            HttpRequestMessage message = BuildMessage();
 
             var response = await client.SendAsync(message);
+            if (response.StatusCode == System.Net.HttpStatusCode.ServiceUnavailable)
+            {
+                // We should retry again
+                if (RetryCount++ < 4)
+                {
+                    await BackoffHelper.Default.FullJitterBackoffDelay(RetryCount);
+                    return await GetResponseAsync();
+                }
+            }
             return new WrappedHttpClientResponse(response);
         }
 

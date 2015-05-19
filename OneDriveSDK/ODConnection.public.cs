@@ -131,7 +131,7 @@ namespace OneDrive
                 throw new ODException("Couldn't get length of sourceFileStream.");
             }
 
-            Uri serviceUri = UriForItemReference(itemReference);
+            Uri serviceUri = UriForItemReference(itemReference, ApiConstants.ContentRelationshipName);
             return await UploadToUrl(sourceFileStream, options, localItemSize, serviceUri);
         }
 

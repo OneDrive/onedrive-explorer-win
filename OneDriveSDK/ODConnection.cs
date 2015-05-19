@@ -28,6 +28,13 @@ namespace OneDrive
             Authentication = auth;
         }
 
+        public ODConnection(string rootUrl, string accessToken)
+        {
+            HttpRequestFactory = new Http.HttpFactoryDefault();
+            RootUrl = rootUrl;
+            Authentication = new SimpleAuthenticationInfo { AccessToken = accessToken };
+        }
+
         #endregion
 
         #region Helper Methods

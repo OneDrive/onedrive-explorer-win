@@ -65,6 +65,7 @@
     <Compile Include="Extensions\ThumbnailExtensionMethods.cs" />
     <Compile Include="Extensions\UploadExtensionMethods.cs" />
     <Compile Include="Facets\SharingLinkFacet.cs" />
+    <Compile Include="Http\BackoffHelper.cs" />
     <Compile Include="Http\HttpFactoryDefault.cs" />
     <Compile Include="Http\WrappedHttpClient.cs" />
     <Compile Include="Http\IHttpRequest.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="ODConnection.public.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ContentRange.cs" />
+    <Compile Include="SimpleAuthenticationInfo.cs" />
     <Compile Include="SpecialFolder.cs" />
     <Compile Include="Utility\EnumExtensionMethods.cs" />
     <Compile Include="Utility\HttpExtensionMethods.cs" />

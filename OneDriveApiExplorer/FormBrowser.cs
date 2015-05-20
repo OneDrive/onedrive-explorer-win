@@ -677,6 +677,24 @@ namespace NewApiBrowser
             display.Show();
 
         }
+        
+        private async void getShareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ShowWork(true);
+                LoadChildren(null);
+                var results = await Connection.GetSharedItemsAsync(ItemRetrievalOptions.Default);
+                LoadChildren(results, false);
+                //var form = new FormSyncResults(Connection, results);
+                //form.Show();
+            }
+            catch (ODException exception)
+            {
+                PresentOneDriveException(exception);
+            }
+            ShowWork(false);
+        }
     }
 
 }

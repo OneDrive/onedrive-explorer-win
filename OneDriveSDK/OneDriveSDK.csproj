@@ -47,6 +47,7 @@
     <Compile Include="DataType\ODAsyncTaskStatus.cs" />
     <Compile Include="DataType\ODDataModel.cs" />
     <Compile Include="DataType\ODError.cs" />
+    <Compile Include="DataType\ODExtendedItemReference.cs" />
     <Compile Include="DataType\ODItemCollection.cs" />
     <Compile Include="DataType\ODCollectionResponse.cs" />
     <Compile Include="DataType\ODPermission.cs" />

@@ -40,5 +40,18 @@ namespace OneDrive
             else
                 return false;
         }
+
+        /// <summary>
+        /// Ensures that a path component has a leading path seperator "foo/bar" => "/foo/bar"
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public static string EnsureLeadingPathSeperator(this string path)
+        {
+            if (path.StartsWith("/"))
+                return path;
+            else
+                return "/" + path;
+        }
     }
 }

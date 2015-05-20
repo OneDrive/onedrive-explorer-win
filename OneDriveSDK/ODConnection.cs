@@ -244,18 +244,21 @@ namespace OneDrive
             // RootUrl = "https://api.onedrive.com/v1.0"
             StringBuilder url = new StringBuilder(RootUrl);
 
+            var extendedReference = itemReference as ODExtendedItemReference;
+
+
             if (!string.IsNullOrEmpty(itemReference.Id))
             {
-                if  (!string.IsNullOrEmpty(itemReference.DriveId)) 
-                {
+                if (!string.IsNullOrEmpty(itemReference.DriveId))
                     url.AppendFormat("/drives/{0}", itemReference.DriveId);
-                }
                 else
-                { 
                     url.AppendFormat("/drive");
-                }
 
                 url.AppendFormat("/items/{0}", itemReference.Id);
+                if (null != extendedReference && !string.IsNullOrEmpty(extendedReference.AdditionalPath))
+                {
+                    url.AppendFormat(":{0}:", extendedReference.AdditionalPath.EnsureLeadingPathSeperator());
+                }
             }
             else if (!string.IsNullOrEmpty(itemReference.Path))
             {
@@ -263,6 +266,12 @@ namespace OneDrive
                     throw new ArgumentException("Invalid ODItemReference: Path doesn't start with \"/drive\" or \"/drives\".");
 
                 url.Append(Uri.EscapeUriString(itemReference.Path));
+
+                if (null != extendedReference && !string.IsNullOrEmpty(extendedReference.AdditionalPath))
+                {
+                    url.AppendFormat(extendedReference.AdditionalPath.EnsureLeadingPathSeperator());
+                }
+
                 if (itemReference.Path.OccurrencesOfCharacter(':') == 1)
                 {
                     // Make sure we terminate the path escape so we can add a navigation property if necessary

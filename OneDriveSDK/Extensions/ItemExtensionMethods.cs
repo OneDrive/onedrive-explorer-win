@@ -133,5 +133,11 @@ namespace OneDrive
         {
             return await connection.DownloadStreamForItemAsync(item.ItemReference(), downloadOptions);
         }
+
+
+        public static ODItemReference AddPathComponent(this ODItemReference itemRef, string pathComponent)
+        {
+            return new ODExtendedItemReference(itemRef) { AdditionalPath = pathComponent };
+        }
     }
 }

@@ -12,13 +12,19 @@ namespace OneDrive
         private static readonly HttpClientHandler Handler;
         private HttpClient Client { get; set; }
 
+        public static readonly bool ResponseCompressionEnabled = true;
+
         static WrappedHttpClientRequest()
         {
             Handler = new HttpClientHandler {
                 AllowAutoRedirect = false,
-                //AutomaticDecompression = System.Net.DecompressionMethods.GZip | System.Net.DecompressionMethods.Deflate,
                 UseCookies = false
             };
+
+            if (ResponseCompressionEnabled)
+            {
+                Handler.AutomaticDecompression = System.Net.DecompressionMethods.GZip | System.Net.DecompressionMethods.Deflate;
+            }
         }
 
         public WrappedHttpClientRequest(Uri uri)
@@ -94,6 +100,11 @@ namespace OneDrive
             if (!string.IsNullOrEmpty(Accept))
             {
                 message.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue(Accept));
+            }
+
+            if (ResponseCompressionEnabled)
+            {
+                message.Headers.TryAddWithoutValidation("Accept-Encoding", "gzip, deflate");
             }
 
             message.RequestUri = Uri;

@@ -135,6 +135,22 @@ namespace OneDrive
             return await UploadToUrl(sourceFileStream, options, localItemSize, serviceUri);
         }
 
+        public async Task<ODItem> PutItemAsync(ODItemReference itemReference, ODItem itemProperties)
+        {
+            if (!itemReference.IsValid())
+                throw new ArgumentException("ItemReference was invalid. Requires either an ID or Path");
+
+            Uri serviceUri = UriForItemReference(itemReference);
+            var request = await CreateHttpRequestAsync(serviceUri, ApiConstants.HttpPut);
+            request.ContentType = ApiConstants.ContentTypeJson;
+
+            await SerializeObjectToRequestBody(itemProperties, request);
+
+            var item = await DataModelForRequest<ODItem>(request);
+            return item;
+
+        }
+
         /// <summary>
         /// Upload a new file to a parent folder item.
         /// </summary>
@@ -167,6 +183,7 @@ namespace OneDrive
             await CreateHttpRequestAsync(serviceUri, ApiConstants.HttpPut);
             return await UploadToUrl(sourceFileStream, options, localItemSize, serviceUri);
         }
+
 
         /// <summary>
         /// Uploads a file using the resumable fragment upload API, splitting the file into smaller pieces to upload.

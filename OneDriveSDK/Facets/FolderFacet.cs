@@ -5,7 +5,7 @@ namespace OneDrive.Facets
 {
     public class FolderFacet
     {
-        [JsonProperty("childCount")]
+        [JsonProperty("childCount", DefaultValueHandling=DefaultValueHandling.Ignore)]
         public long ChildCount { get; set; }
     }
 }

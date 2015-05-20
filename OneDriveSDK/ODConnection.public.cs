@@ -413,7 +413,18 @@ namespace OneDrive
             var request = await CreateHttpRequestAsync(serviceUri, ApiConstants.HttpGet);
             return await DataModelForRequest<ODItemCollection>(request);
         }
+        
+        public async Task<ODItemCollection> GetSharedItemsAsync(ItemRetrievalOptions itemRetrievalOptions)
+        {
+            if (null == itemRetrievalOptions)
+                throw new ArgumentNullException("itemRetrievalOptions");
 
+            ODItemReference item = new ODItemReference();
+                item.Path = "/drive/shared";
+            var queryParams = ODataOptionsToQueryString(itemRetrievalOptions);
+            var serviceUri = UriForItemReference(item, null, queryParams);
+            return await DataModelForRequest<ODItemCollection>(serviceUri, ApiConstants.HttpGet);
+        }
 
         public async Task<ODDrive> GetDrive(ODItemReference driveReference = null)
         {

@@ -1,4 +1,4 @@
-﻿namespace NewApiBrowser
+namespace NewApiBrowser
 {
     partial class FormBrowser
     {
@@ -32,7 +32,6 @@
             this.flowLayoutContents = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanelBreadcrumb = new System.Windows.Forms.FlowLayoutPanel();
             this.linkLabelOneDriveRoot = new System.Windows.Forms.LinkLabel();
-            this.oneDriveObjectBrowser1 = new NewApiBrowser.OneDriveObjectBrowser();
             this.panel1 = new System.Windows.Forms.Panel();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -61,6 +60,8 @@
             this.getChangesHereToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getDriveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.getShareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oneDriveObjectBrowser1 = new NewApiBrowser.OneDriveObjectBrowser();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -126,17 +127,6 @@
             this.linkLabelOneDriveRoot.Text = "OneDrive";
             this.linkLabelOneDriveRoot.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelBreadcrumb_LinkClicked);
             // 
-            // oneDriveObjectBrowser1
-            // 
-            this.oneDriveObjectBrowser1.DisplayFormat = NewApiBrowser.PropertyDisplayFormat.RawJson;
-            this.oneDriveObjectBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.oneDriveObjectBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.oneDriveObjectBrowser1.Margin = new System.Windows.Forms.Padding(2);
-            this.oneDriveObjectBrowser1.Name = "oneDriveObjectBrowser1";
-            this.oneDriveObjectBrowser1.SelectedItem = null;
-            this.oneDriveObjectBrowser1.Size = new System.Drawing.Size(257, 464);
-            this.oneDriveObjectBrowser1.TabIndex = 0;
-            // 
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -185,20 +175,20 @@
             this.toolStripMenuItem1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 19);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 19);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // signInToolStripMenuItem
             // 
             this.signInToolStripMenuItem.Name = "signInToolStripMenuItem";
-            this.signInToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.signInToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.signInToolStripMenuItem.Text = "Sign In to OneDrive...";
             this.signInToolStripMenuItem.Click += new System.EventHandler(this.signInToolStripMenuItem_Click);
             // 
             // signOutToolStripMenuItem
             // 
             this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.signOutToolStripMenuItem.Text = "Sign Out";
             this.signOutToolStripMenuItem.Visible = false;
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
@@ -206,31 +196,31 @@
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(211, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(205, 6);
             // 
             // createFolderToolStripMenuItem
             // 
             this.createFolderToolStripMenuItem.Name = "createFolderToolStripMenuItem";
-            this.createFolderToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.createFolderToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.createFolderToolStripMenuItem.Text = "Create Folder...";
             this.createFolderToolStripMenuItem.Click += new System.EventHandler(this.createFolderToolStripMenuItem_Click);
             // 
             // saveSelectedFileToolStripMenuItem
             // 
             this.saveSelectedFileToolStripMenuItem.Name = "saveSelectedFileToolStripMenuItem";
-            this.saveSelectedFileToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.saveSelectedFileToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.saveSelectedFileToolStripMenuItem.Text = "Download Selected File...";
             this.saveSelectedFileToolStripMenuItem.Click += new System.EventHandler(this.saveSelectedFileToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(211, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(205, 6);
             // 
             // renameSelectedItemToolStripMenuItem
             // 
             this.renameSelectedItemToolStripMenuItem.Name = "renameSelectedItemToolStripMenuItem";
-            this.renameSelectedItemToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.renameSelectedItemToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.renameSelectedItemToolStripMenuItem.Text = "Rename Selected Item...";
             this.renameSelectedItemToolStripMenuItem.Click += new System.EventHandler(this.renameSelectedItemToolStripMenuItem_Click);
             // 
@@ -238,19 +228,19 @@
             // 
             this.deleteSelectedItemToolStripMenuItem.Name = "deleteSelectedItemToolStripMenuItem";
             this.deleteSelectedItemToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.deleteSelectedItemToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.deleteSelectedItemToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.deleteSelectedItemToolStripMenuItem.Text = "Delete Selected Item...";
             this.deleteSelectedItemToolStripMenuItem.Click += new System.EventHandler(this.deleteSelectedItemToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(211, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(205, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -264,46 +254,46 @@
             this.fromURLToolStripMenuItem,
             this.largeFileToolStripMenuItem});
             this.uploadFileToolStripMenuItem.Name = "uploadFileToolStripMenuItem";
-            this.uploadFileToolStripMenuItem.Size = new System.Drawing.Size(57, 19);
+            this.uploadFileToolStripMenuItem.Size = new System.Drawing.Size(52, 19);
             this.uploadFileToolStripMenuItem.Text = "Upload";
             // 
             // newFileInCurrentFolderToolStripMenuItem
             // 
             this.newFileInCurrentFolderToolStripMenuItem.Name = "newFileInCurrentFolderToolStripMenuItem";
-            this.newFileInCurrentFolderToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.newFileInCurrentFolderToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.newFileInCurrentFolderToolStripMenuItem.Text = "New File In Current Folder...";
             this.newFileInCurrentFolderToolStripMenuItem.Click += new System.EventHandler(this.newFileInCurrentFolderToolStripMenuItem_Click);
             // 
             // replaceSelectedItemToolStripMenuItem
             // 
             this.replaceSelectedItemToolStripMenuItem.Name = "replaceSelectedItemToolStripMenuItem";
-            this.replaceSelectedItemToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.replaceSelectedItemToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.replaceSelectedItemToolStripMenuItem.Text = "Replace Selected Item...";
             this.replaceSelectedItemToolStripMenuItem.Click += new System.EventHandler(this.replaceSelectedItemToolStripMenuItem_Click);
             // 
             // toPathToolStripMenuItem
             // 
             this.toPathToolStripMenuItem.Name = "toPathToolStripMenuItem";
-            this.toPathToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.toPathToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.toPathToolStripMenuItem.Text = "To Path...";
             this.toPathToolStripMenuItem.Click += new System.EventHandler(this.toPathToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(217, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(209, 6);
             // 
             // fromURLToolStripMenuItem
             // 
             this.fromURLToolStripMenuItem.Name = "fromURLToolStripMenuItem";
-            this.fromURLToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.fromURLToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.fromURLToolStripMenuItem.Text = "From URL...";
             this.fromURLToolStripMenuItem.Click += new System.EventHandler(this.fromURLToolStripMenuItem_Click);
             // 
             // largeFileToolStripMenuItem
             // 
             this.largeFileToolStripMenuItem.Name = "largeFileToolStripMenuItem";
-            this.largeFileToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.largeFileToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.largeFileToolStripMenuItem.Text = "Large File...";
             this.largeFileToolStripMenuItem.Click += new System.EventHandler(this.largeFileToolStripMenuItem_Click);
             // 
@@ -313,20 +303,20 @@
             this.openFromOneDriveToolStripMenuItem,
             this.uploadToOneDriveToolStripMenuItem});
             this.pickerToolStripMenuItem.Name = "pickerToolStripMenuItem";
-            this.pickerToolStripMenuItem.Size = new System.Drawing.Size(51, 19);
+            this.pickerToolStripMenuItem.Size = new System.Drawing.Size(47, 19);
             this.pickerToolStripMenuItem.Text = "Picker";
             // 
             // openFromOneDriveToolStripMenuItem
             // 
             this.openFromOneDriveToolStripMenuItem.Name = "openFromOneDriveToolStripMenuItem";
-            this.openFromOneDriveToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.openFromOneDriveToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.openFromOneDriveToolStripMenuItem.Text = "Open from OneDrive...";
             this.openFromOneDriveToolStripMenuItem.Click += new System.EventHandler(this.openFromOneDriveToolStripMenuItem_Click);
             // 
             // uploadToOneDriveToolStripMenuItem
             // 
             this.uploadToOneDriveToolStripMenuItem.Name = "uploadToOneDriveToolStripMenuItem";
-            this.uploadToOneDriveToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.uploadToOneDriveToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.uploadToOneDriveToolStripMenuItem.Text = "Upload to OneDrive...";
             // 
             // advancedScenariosToolStripMenuItem
@@ -334,9 +324,10 @@
             this.advancedScenariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.getChangesHereToolStripMenuItem,
             this.searchToolStripMenuItem,
-            this.getDriveToolStripMenuItem});
+            this.getDriveToolStripMenuItem,
+            this.getShareToolStripMenuItem});
             this.advancedScenariosToolStripMenuItem.Name = "advancedScenariosToolStripMenuItem";
-            this.advancedScenariosToolStripMenuItem.Size = new System.Drawing.Size(125, 19);
+            this.advancedScenariosToolStripMenuItem.Size = new System.Drawing.Size(116, 19);
             this.advancedScenariosToolStripMenuItem.Text = "Advanced Scenarios";
             // 
             // getChangesHereToolStripMenuItem
@@ -359,6 +350,24 @@
             this.getDriveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.getDriveToolStripMenuItem.Text = "Get Drive...";
             this.getDriveToolStripMenuItem.Click += new System.EventHandler(this.getDriveToolStripMenuItem_Click);
+            // 
+            // getShareToolStripMenuItem
+            // 
+            this.getShareToolStripMenuItem.Name = "getShareToolStripMenuItem";
+            this.getShareToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.getShareToolStripMenuItem.Text = "Get Shared ..";
+            this.getShareToolStripMenuItem.Click += new System.EventHandler(this.getShareToolStripMenuItem_Click);
+            // 
+            // oneDriveObjectBrowser1
+            // 
+            this.oneDriveObjectBrowser1.DisplayFormat = NewApiBrowser.PropertyDisplayFormat.RawJson;
+            this.oneDriveObjectBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.oneDriveObjectBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.oneDriveObjectBrowser1.Margin = new System.Windows.Forms.Padding(2);
+            this.oneDriveObjectBrowser1.Name = "oneDriveObjectBrowser1";
+            this.oneDriveObjectBrowser1.SelectedItem = null;
+            this.oneDriveObjectBrowser1.Size = new System.Drawing.Size(257, 464);
+            this.oneDriveObjectBrowser1.TabIndex = 0;
             // 
             // FormBrowser
             // 
@@ -420,6 +429,7 @@
         private System.Windows.Forms.ToolStripMenuItem largeFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem renameSelectedItemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem getDriveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem getShareToolStripMenuItem;
     }
 }
 

@@ -55,6 +55,8 @@ namespace NewApiBrowser
             {
                 PresentOneDriveException(exception);
             }
+            
+            FixBreadCrumbForCurrentFolder(this.CurrentFolder);
 
             ShowWork(false);
         }

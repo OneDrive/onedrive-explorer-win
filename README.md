@@ -1,6 +1,10 @@
 # onedrive-explorer-win
 OneDrive API Explorer sample code for Windows / C#
 
+**Note: This is an older sample code project provided for example only. This
+sample has been replaced by the same sample app using the official
+[OneDrive SDK for .NET](https://github.com/onedrive/onedrive-sdk-csharp).**
+
 This sample illustrates basic concepts for interacting with the OneDrive API
 from a C# application.
 
@@ -10,8 +14,6 @@ Included in this project:
   of the signed in user's OneDrive and shows the JSON structures returned by the
   API. The Api Explorer also shows you search results and how to upload files in
   various ways using the OneDriveSDK example.
-* OneDriveSDK - An example library for interacting with OneDrive. This library
-  is implemented a Portable Class Library and can be used on a number of target
-  platforms including .NET Framework 4.5, Windows 8, Windows Phone 8.1, and
-  Windows Phone Silverlight 8.
-  
+* OneDriveSDK - An **example** library for interacting with OneDrive. This library
+  has been replaced by the OneDrive SDK for .NET which is now available on NuGet
+  or [GitHub](https://github.com/onedrive/onedrive-sdk-csharp).
